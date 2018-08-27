@@ -55,7 +55,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x000003a8c650b842db8b04ec45616d81948b318159c0ecfbcde56e4cd486ead3"))
+    (0, uint256("0x00000359191c4b8c12635ef805076bd7d67107b683cfab7eeab0c4425c15f981"))
     (400, uint256("0x0000005743687e28ba121ab7a9e0ee3c336614cafe7af5407e8e0581471d5072"))
     (1000, uint256("0x66b24cc041c3c92d1f501fcd9151de5195749065a2671f492cf306aefdb1dfab"));
 
@@ -98,11 +98,11 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x61;
-        pchMessageStart[1] = 0x31;
-        pchMessageStart[2] = 0x72;
+        pchMessageStart[0] = 0x31;
+        pchMessageStart[1] = 0x72;
+        pchMessageStart[2] = 0x61;
         pchMessageStart[3] = 0x4e;
-        vAlertPubKey = ParseHex("04053a5ad7559f75deff42b85fc125d01f3fdfe22ce6b8ed5020446a079f899333be826473a76ba2f7c9c339d1a154fd4b26eed13eaa4b41ef49775f766eced847");
+        vAlertPubKey = ParseHex("04a4784e1486934ced8e9e5febf69be8b97793bacf1ae38c69d06feb403cd4c070b3d79d0fa69a081376354aa37c3d5d1ebb6c26f1f9e813e9308001fc19d19c7f");
         nDefaultPort = 18821;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nSubsidyHalvingInterval = 1050000;
@@ -128,35 +128,35 @@ public:
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 0 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04f834bb9b52be8392d3c1e11bab2fe5fe23afbd9f971cd6fce9fa8a121e46403a10636cdcea7d0a9589aad767947f3764411f57dfcf76932a23de84f084518a2f") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("041d9cb8a970d8ecd976a7eb412b5819ddd737f099b37969d5f6be51b8efb308a9fb1cfc5d7f5344171db4329193d279e1f6e2d26cb862a09abc4e9d93c0deca0e") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1527379200;
+        genesis.nTime = 1535378199;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 211635;
+        genesis.nNonce = 415607;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000003a8c650b842db8b04ec45616d81948b318159c0ecfbcde56e4cd486ead3"));
-        assert(genesis.hashMerkleRoot == uint256("0x579068e89668685027cb23f4d9ab9c8842150c17148ceee8c0d3fa2352d37148"));
+        assert(hashGenesisBlock == uint256("0x00000359191c4b8c12635ef805076bd7d67107b683cfab7eeab0c4425c15f981"));
+        assert(genesis.hashMerkleRoot == uint256("0x23012b682d225867e8d91e2c7dd6174703ab004bc0a88309af3df17cff9b0c20"));
 
         // DNS Seeding
-        vSeeds.push_back(CDNSSeedData("thot.cc", "newseed.thot.cc"));
-
-        // Thot addresses start with 'A'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 23);
-        // Thot script addresses start with '9'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 20);
+        // old is : vSeeds.push_back(CDNSSeedData("thot.cc", "newseed.thot.cc"));
+        vSeeds.clear();
+            // Thot addresses start with 'A'
+            base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(127, 128);
+        // Thot script addresses start with 'h'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(100, 101);
         // Thot private keys start with '9' or 'A'
-        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 22);
+        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(127, 128);
         // Thot BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         // Thot BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
         // Thot BIP44 coin type is '18821'
         //  BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x49)(0x85).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x40)(0x50).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
@@ -170,8 +170,8 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "0440f06498df74d80d33d258ec84a294bed7078557598c1c5d796909dc3d2dc4c2a6c3f066401b4e3a71cf583134d5c397efd07f2ff0dc2d14847befa89441c271";
-        strMasternodePoolDummyAddress = "AQQ6cNVNg1R1A2e1AgtY1FPsh3d1wGekr7";
+        strSporkKey = "049952c9874df96ffb3d4de888bc1087f4b4d5a544b79f99052c161663548e8f82aecc902dda7289646a43e3627f2bb1868254281146b8eeb41cd58b17de73a395";
+        strMasternodePoolDummyAddress = "";               // Delete for the first wallet creation
         nStartMasternodePayments = genesis.nTime + 86400; // 24 hours after genesis creation
 
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
@@ -194,11 +194,11 @@ public:
     {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0x1c;
-        pchMessageStart[1] = 0x62;
-        pchMessageStart[2] = 0x32;
+        pchMessageStart[0] = 0x31;
+        pchMessageStart[1] = 0x72;
+        pchMessageStart[2] = 0x61;
         pchMessageStart[3] = 0x67;
-        vAlertPubKey = ParseHex("0447f078288cf5024694ad27634232226d9a35f2c0c91c898327b79339d7cb42106118290cc51083ecd16992f4d43e1be0597d7d2b46d39f425dd480ad52fb5024");
+        vAlertPubKey = ParseHex("041666af2fb6e16037dfdd60689899a4464657d4bdeeb42c07ac1f5817242d0e85a8a4a939c0504f03f8eb16fbf15eae9f14a6abef2481c5d93445557950384294");
         nDefaultPort = 18823;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
@@ -213,19 +213,19 @@ public:
         nMaxMoneyOut = 2000000 * COIN;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1527379210;
-        genesis.nNonce = 817129;
+        genesis.nTime = 1535378199;
+        genesis.nNonce = 415607;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000012f021d2ed0b64ee2bb5470d2aabae25858f99c7ea9920db86f0b303146"));
+        assert(hashGenesisBlock == uint256("0x00000359191c4b8c12635ef805076bd7d67107b683cfab7eeab0c4425c15f981"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        // Testnet Thot addresses start with 'n'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 112);
-        // Testnet Thot script addresses start with '5'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 10);
+        // Testnet Thot addresses start with 'z'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(142, 143);
+        // Testnet Thot script addresses start with 't'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(127, 128);
         // Testnet private keys start with '5' or 'n' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 240);
         // Testnet Thot BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
@@ -245,8 +245,8 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "04464cc44e8055970909976649bb6b59c48c4861e6bd8092dccba7ac23bf383c184c7013cd07545d10f2ea6793ff83b68c7dae27eb7eb7b7e4039d413afb0d6cbe";
-        strMasternodePoolDummyAddress = "nQQ6cNVNg1R1A2e1AgtY1FPsh3d1wGekr7";
+        strSporkKey = "04afdb1dd07802d429ae11cc346a74f4777771b179177cae388b812292231f96ded6790be2e42d8929db9e567ea19bf9ac833a299b0ecbb76352ce35fcb4faf2b2";
+        strMasternodePoolDummyAddress = "";
         nStartMasternodePayments = genesis.nTime + 86400; // 24 hours after genesis
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet
@@ -272,7 +272,7 @@ public:
         pchMessageStart[0] = 0x39;
         pchMessageStart[1] = 0x30;
         pchMessageStart[2] = 0x61;
-        pchMessageStart[3] = 0x63;
+        pchMessageStart[3] = 0x67;
         nSubsidyHalvingInterval = 150;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
