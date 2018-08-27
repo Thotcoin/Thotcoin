@@ -23,7 +23,7 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
 Homepage: https://thot.cc
-Vcs-Git: git://github.com/thot/thot.git
+Vcs-Git: git://github.com/Thotcoin/Thotcoin.git
 Vcs-Browser: http://github.com/thot/thot
 
 Package: thotd
