@@ -281,7 +281,7 @@ Clone the git repositories for thot and gitian and then checkout the thot versio
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/thot/thot.git
+git clone https://github.com/Thotcoin/Thotcoin.git
 cd thot
 git checkout v${VERSION}
 cd ..
