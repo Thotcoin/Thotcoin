@@ -2,7 +2,8 @@ Thot Core
 =================================================
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/thotcoin/thot/master/doc/bitcoin_logo_doxygen.png" width="256" />
+  <img src="https://github.com/vbuck-project/Thotcoin/blob/master/doc/bitcoin_logo_doxygen.png" width="256" />
+  
 </p>
 
 
