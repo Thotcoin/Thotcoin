@@ -122,7 +122,7 @@ public:
         nModifierUpdateBlock = 1; // we use the version 2 for THOT
 
 
-        const char* pszTimestamp = "Thot swap 27/05/2018";
+        const char* pszTimestamp = "Thot platform run on 2018";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
