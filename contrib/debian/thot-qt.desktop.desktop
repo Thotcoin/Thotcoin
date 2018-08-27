@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Thot
+Comment=Thot P2P Cryptocurrency
+Exec=thot-qt %u
+Terminal=false
+Type=Application
+Icon=thot128
+MimeType=x-scheme-handler/thot;
+Categories=Office;Finance;
+Name[en_US]=thot-qt.desktop

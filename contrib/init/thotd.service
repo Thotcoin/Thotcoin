@@ -1,0 +1,26 @@
+[Unit]
+Description=Thot's distributed currency daemon
+After=network.target
+
+[Service]
+User=thot
+Group=thot
+
+Type=forking
+PIDFile=/var/lib/thotd/thotd.pid
+
+ExecStart=/usr/bin/thotd -daemon -pid=/var/lib/thotd/thotd.pid \
+          -conf=/etc/thot/thot.conf -datadir=/var/lib/thotd
+
+ExecStop=-/usr/bin/thot-cli -conf=/etc/thot/thot.conf \
+         -datadir=/var/lib/thotd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

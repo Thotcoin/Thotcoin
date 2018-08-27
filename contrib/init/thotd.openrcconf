@@ -1,0 +1,26 @@
+# /etc/conf.d/thotd: config file for /etc/init.d/thotd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/thot/thot.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/thotd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/thotd.pid"
+
+# Where to write thotd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/thotd"
+
+# User and group to own thotd process
+#BITCOIND_USER="thot"
+#BITCOIND_GROUP="thot"
+
+# Path to thotd executable
+#BITCOIND_BIN="/usr/bin/thotd"
+
+# Nice value to run thotd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
