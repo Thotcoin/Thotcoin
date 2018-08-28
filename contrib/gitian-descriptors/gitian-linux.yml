@@ -29,7 +29,7 @@ packages:
 - "python"
 reference_datetime: "2015-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/Thotcoin/Thotcoin.git"
+- "url": "https://github.com/Thotcoin/thot.git"
   "dir": "thot"
 files: []
 script: |

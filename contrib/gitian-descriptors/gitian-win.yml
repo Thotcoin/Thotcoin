@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/Thotcoin/Thotcoin.git"
+- "url": "https://github.com/Thotcoin/thot.git"
   "dir": "thot"
 files: []
 script: |

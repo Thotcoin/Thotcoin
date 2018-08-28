@@ -27,7 +27,7 @@ Check out the source code in the following directory hierarchy.
     git clone https://github.com/thot/gitian.sigs.git
     git clone https://github.com/thot/thot-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/Thotcoin/Thotcoin.git
+    git clone https://github.com/Thotcoin/thot.git
 
 ### Thot maintainers/release engineers, suggestion for writing release notes
 
