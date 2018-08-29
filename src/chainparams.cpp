@@ -280,12 +280,12 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Thot: 1 day
         nTargetSpacing = 2 * 60;        // Thot: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1527379220;
-        genesis.nBits = 0x207fffff;
-        genesis.nNonce = 0;
+        genesis.nTime = 1535378199;
+        genesis.nBits = 0x1e0ffff0;
+        genesis.nNonce = 415607;
 
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 218821;
+        nDefaultPort = 188214;
         assert(hashGenesisBlock == uint256("0x00000359191c4b8c12635ef805076bd7d67107b683cfab7eeab0c4425c15f981"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
